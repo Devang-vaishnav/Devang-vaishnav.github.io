@@ -1,0 +1,39 @@
+<%- include("partials/header.ejs") %>
+
+
+
+<main>
+  <div class="hero">
+  <br>
+  <br>
+  <div class="bx">
+    <!-- <% var dt = new Date() %> -->
+    <strong><%= st %></strong>
+  </div>
+  <br>
+  <br>
+  <div class="lst">
+  <form action="/delete" method="POST">
+  <ul id="list">
+    <% data.forEach(element => { %>
+        <br>
+        <li><input type="checkbox" onChange="this.form.submit()" name="check" value="<%= element._id %>"> <%= element.name %></li>
+        <hr>
+    <% }); %> 
+    <input type="hidden" name="delst" value="<%= st %>">
+  <ul>
+  </form>
+  <br>
+  <br>
+  <div class="additem">
+  <form action='/update' method="POST">
+      <input id="txtbx" type="text" placeholder="New-Item" name="newToDo" required>
+      <button class="button" name="try" value="<%= st %>">+</button>
+  </form>
+</div>
+</div>
+</div>
+</main>
+</body>
+</html>
+
